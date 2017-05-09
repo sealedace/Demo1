@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="DemoSectionHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acj-RA-gMe">
+                    <rect key="frame" x="237" y="8" width="74" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="74" id="EjR-c8-rT4"/>
+                    </constraints>
+                    <state key="normal" title="加列"/>
+                    <connections>
+                        <action selector="rightButtonPressed:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="OWV-RW-7NA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-PQ-6zg">
+                    <rect key="frame" x="16" y="8" width="74" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="74" id="d2d-5B-u0N"/>
+                    </constraints>
+                    <state key="normal" title="减列"/>
+                    <connections>
+                        <action selector="leftButtonPressed:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="BJ8-RO-NW4"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Vd2-PQ-6zg" secondAttribute="bottom" constant="8" id="DAW-EU-nSC"/>
+                <constraint firstItem="Vd2-PQ-6zg" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="8" id="FpN-bE-NmE"/>
+                <constraint firstItem="Vd2-PQ-6zg" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="NvG-S8-WG7"/>
+                <constraint firstItem="acj-RA-gMe" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="8" id="gZC-DM-cfU"/>
+                <constraint firstAttribute="trailing" secondItem="acj-RA-gMe" secondAttribute="trailing" constant="9" id="grt-rV-TdK"/>
+                <constraint firstAttribute="bottom" secondItem="acj-RA-gMe" secondAttribute="bottom" constant="8" id="qxv-dW-jqV"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+</document>

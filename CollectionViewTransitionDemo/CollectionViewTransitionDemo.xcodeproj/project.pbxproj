@@ -13,6 +13,16 @@
 		506983C31EC174FD00D2C292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506983C11EC174FD00D2C292 /* Main.storyboard */; };
 		506983C51EC174FD00D2C292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 506983C41EC174FD00D2C292 /* Assets.xcassets */; };
 		506983C81EC174FD00D2C292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506983C61EC174FD00D2C292 /* LaunchScreen.storyboard */; };
+		506983D11EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */; };
+		506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D31EC1A5F800D2C292 /* DummyDataSource.m */; };
+		506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D61EC1AA0A00D2C292 /* DemoCollectionViewCell.m */; };
+		506983D91EC1AA0A00D2C292 /* DemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 506983D71EC1AA0A00D2C292 /* DemoCollectionViewCell.xib */; };
+		506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983DB1EC1EABD00D2C292 /* DemoSectionHeader.m */; };
+		506983DE1EC1EABD00D2C292 /* DemoSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */; };
+		506983E41EC1F07A00D2C292 /* cat1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E01EC1F07A00D2C292 /* cat1.jpg */; };
+		506983E51EC1F07A00D2C292 /* cat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E11EC1F07A00D2C292 /* cat2.jpg */; };
+		506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E21EC1F07A00D2C292 /* cat3.jpg */; };
+		506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E31EC1F07A00D2C292 /* cat4.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +36,20 @@
 		506983C41EC174FD00D2C292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		506983C71EC174FD00D2C292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		506983C91EC174FD00D2C292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		506983CF1EC1A25C00D2C292 /* YH_WaterFallFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_WaterFallFlowLayout.h; sourceTree = "<group>"; };
+		506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_WaterFallFlowLayout.m; sourceTree = "<group>"; };
+		506983D21EC1A5F800D2C292 /* DummyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyDataSource.h; sourceTree = "<group>"; };
+		506983D31EC1A5F800D2C292 /* DummyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyDataSource.m; sourceTree = "<group>"; };
+		506983D51EC1AA0A00D2C292 /* DemoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCollectionViewCell.h; sourceTree = "<group>"; };
+		506983D61EC1AA0A00D2C292 /* DemoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCollectionViewCell.m; sourceTree = "<group>"; };
+		506983D71EC1AA0A00D2C292 /* DemoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoCollectionViewCell.xib; sourceTree = "<group>"; };
+		506983DA1EC1EABD00D2C292 /* DemoSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoSectionHeader.h; sourceTree = "<group>"; };
+		506983DB1EC1EABD00D2C292 /* DemoSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoSectionHeader.m; sourceTree = "<group>"; };
+		506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoSectionHeader.xib; sourceTree = "<group>"; };
+		506983E01EC1F07A00D2C292 /* cat1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat1.jpg; sourceTree = "<group>"; };
+		506983E11EC1F07A00D2C292 /* cat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat2.jpg; sourceTree = "<group>"; };
+		506983E21EC1F07A00D2C292 /* cat3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat3.jpg; sourceTree = "<group>"; };
+		506983E31EC1F07A00D2C292 /* cat4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat4.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +82,7 @@
 		506983B71EC174FD00D2C292 /* CollectionViewTransitionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				506983DF1EC1F07A00D2C292 /* images */,
 				506983BB1EC174FD00D2C292 /* AppDelegate.h */,
 				506983BC1EC174FD00D2C292 /* AppDelegate.m */,
 				506983BE1EC174FD00D2C292 /* ViewController.h */,
@@ -67,6 +92,16 @@
 				506983C61EC174FD00D2C292 /* LaunchScreen.storyboard */,
 				506983C91EC174FD00D2C292 /* Info.plist */,
 				506983B81EC174FD00D2C292 /* Supporting Files */,
+				506983CF1EC1A25C00D2C292 /* YH_WaterFallFlowLayout.h */,
+				506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */,
+				506983D21EC1A5F800D2C292 /* DummyDataSource.h */,
+				506983D31EC1A5F800D2C292 /* DummyDataSource.m */,
+				506983D51EC1AA0A00D2C292 /* DemoCollectionViewCell.h */,
+				506983D61EC1AA0A00D2C292 /* DemoCollectionViewCell.m */,
+				506983D71EC1AA0A00D2C292 /* DemoCollectionViewCell.xib */,
+				506983DA1EC1EABD00D2C292 /* DemoSectionHeader.h */,
+				506983DB1EC1EABD00D2C292 /* DemoSectionHeader.m */,
+				506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */,
 			);
 			path = CollectionViewTransitionDemo;
 			sourceTree = "<group>";
@@ -77,6 +112,17 @@
 				506983B91EC174FD00D2C292 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		506983DF1EC1F07A00D2C292 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				506983E01EC1F07A00D2C292 /* cat1.jpg */,
+				506983E11EC1F07A00D2C292 /* cat2.jpg */,
+				506983E21EC1F07A00D2C292 /* cat3.jpg */,
+				506983E31EC1F07A00D2C292 /* cat4.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,7 +156,7 @@
 				TargetAttributes = {
 					506983B41EC174FD00D2C292 = {
 						CreatedOnToolsVersion = 8.3.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -137,9 +183,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506983E51EC1F07A00D2C292 /* cat2.jpg in Resources */,
 				506983C81EC174FD00D2C292 /* LaunchScreen.storyboard in Resources */,
+				506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */,
 				506983C51EC174FD00D2C292 /* Assets.xcassets in Resources */,
+				506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */,
 				506983C31EC174FD00D2C292 /* Main.storyboard in Resources */,
+				506983D91EC1AA0A00D2C292 /* DemoCollectionViewCell.xib in Resources */,
+				506983E41EC1F07A00D2C292 /* cat1.jpg in Resources */,
+				506983DE1EC1EABD00D2C292 /* DemoSectionHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +202,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */,
 				506983C01EC174FD00D2C292 /* ViewController.m in Sources */,
+				506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */,
 				506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */,
+				506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */,
 				506983BA1EC174FD00D2C292 /* main.m in Sources */,
+				506983D11EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,10 +328,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.SealedCompany.CollectionViewTransitionDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -283,10 +341,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.SealedCompany.CollectionViewTransitionDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
