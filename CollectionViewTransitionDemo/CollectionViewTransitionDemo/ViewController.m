@@ -76,6 +76,8 @@ typedef NS_ENUM(NSInteger, LayoutType) {
                  withReuseIdentifier:NSStringFromClass(DemoSectionHeader.class)];
 
     self.collectionView.prefetchDataSource = self.dataSource;
+    
+    self.collectionView.prefetchingEnabled = NO;
 }
 
 - (void)viewDidLoad {
@@ -167,7 +169,7 @@ typedef NS_ENUM(NSInteger, LayoutType) {
 
 - (BOOL)shouldStickHeaderToTopInSection:(NSUInteger)section {
     if (section == 0) {
-        return NO;
+        return YES;
     }
     
     return NO;
@@ -198,6 +200,7 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     [self.collectionView performBatchUpdates:^{
         [self.collectionView.collectionViewLayout invalidateLayout];
         [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
+        
     } completion:^(BOOL finished) {
     }];
 }

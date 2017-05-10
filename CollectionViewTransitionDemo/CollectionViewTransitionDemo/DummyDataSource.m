@@ -20,7 +20,7 @@
         
         NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:10];
         
-        for (NSInteger i=0; i<10; i++) {
+        for (NSInteger i=0; i<20; i++) {
             [array addObject:[NSString stringWithFormat:@"%zd", i]];
         }
         

@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *itemAttributes;
 @property (nonatomic, strong) NSMutableArray *supplementaryViewsAttibutes;
 
+
 @end
 
 @implementation YH_WaterFallFlowLayout
@@ -64,7 +65,7 @@
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
 {
-    return !(CGSizeEqualToSize(newBounds.size, self.collectionView.frame.size));
+    return YES;
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
@@ -73,6 +74,39 @@
     [self addVisibleSupplementaryViewsAttributesToLayoutAttributes:attributes inRect:rect];
     [self addVisibleHeadersToLayoutAttributes:attributes fromVisibleSectionsWithoutHeader:[self visibleSectionsWithoutHeaderInAttributes:attributes]];
     [self updateStickedHeadersAttributesInLayoutAttributes:attributes];
+    return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+    
+    if (!attributes) {
+        if (self.itemAttributes.count > indexPath.section) {
+            NSArray *array = self.itemAttributes[indexPath.section];
+            if (array.count > indexPath.item) {
+                attributes = array[indexPath.item];
+            }
+        }
+    }
+    
+    return attributes;
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewLayoutAttributes *attributes = [super layoutAttributesForSupplementaryViewOfKind:elementKind
+                                                                                         atIndexPath:indexPath];
+    
+    if (!attributes) {
+        
+        if (elementKind == UICollectionElementKindSectionHeader) {
+            NSInteger section = indexPath.section;
+            if (self.supplementaryViewsAttibutes.count > section) {
+                attributes = [self.supplementaryViewsAttibutes[section] objectForKey:UICollectionElementKindSectionHeader];
+            }
+        }
+        
+    }
     return attributes;
 }
 
@@ -115,9 +149,9 @@
 - (UIEdgeInsets)insetsForSection:(NSUInteger)section {
     UIEdgeInsets insets;
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:sectionInsetForSection:)]) {
-        insets=[self.delegate collectionView:self.collectionView layout:self sectionInsetForSection:section];
+        insets = [self.delegate collectionView:self.collectionView layout:self sectionInsetForSection:section];
     }else{
-        insets=self.sectionInset;
+        insets = self.sectionInset;
     }
     return insets;
 }
@@ -127,7 +161,7 @@
     if([self.delegate respondsToSelector:@selector(collectionView:layout:itemSpacingInSection:)]){
         itemSpacing = [self.delegate collectionView:self.collectionView layout:self itemSpacingInSection:section];
     }else{
-        itemSpacing=self.itemSpacing;
+        itemSpacing = self.itemSpacing;
     }
     return itemSpacing;
 }
@@ -181,11 +215,11 @@
     
     if(section > 0) {
         NSUInteger longestColumnIndex = [self longestColumnIndexInSection:section-1];
-        yOffset=[(self.columnHeights[section-1][longestColumnIndex]) floatValue] + [self insetsForSection:section-1].bottom;
-        NSMutableDictionary *previousSectionSupplementaryViewsAttibutes=self.supplementaryViewsAttibutes[section-1];
-        UICollectionViewLayoutAttributes *footerAttributes=[previousSectionSupplementaryViewsAttibutes objectForKey:UICollectionElementKindSectionFooter];
+        yOffset = [(self.columnHeights[section-1][longestColumnIndex]) floatValue] + [self insetsForSection:section-1].bottom;
+        NSMutableDictionary *previousSectionSupplementaryViewsAttibutes = self.supplementaryViewsAttibutes[section-1];
+        UICollectionViewLayoutAttributes *footerAttributes = [previousSectionSupplementaryViewsAttibutes objectForKey:UICollectionElementKindSectionFooter];
         if (footerAttributes) {
-            yOffset+=footerAttributes.frame.size.height;
+            yOffset += footerAttributes.frame.size.height;
         }
     }
     
@@ -237,9 +271,9 @@
     if ([self.delegate respondsToSelector:@selector(collectionView:layout:aspectRatioForIndexPath:)]) {
         itemHeight = floorf(itemWidth/[self.delegate collectionView:self.collectionView layout:self aspectRatioForIndexPath:indexPath]);
     }else if([self.delegate respondsToSelector:@selector(collectionView:layout:heightItemAtIndexPath:)]){
-        itemHeight=floorf([self.delegate collectionView:self.collectionView layout:self heightItemAtIndexPath:indexPath]);
+        itemHeight = floorf([self.delegate collectionView:self.collectionView layout:self heightItemAtIndexPath:indexPath]);
     }else if ([self.delegate respondsToSelector:@selector(collectionView:layout:heightItemAtIndexPath:withWidth:)]){
-        itemHeight=floorf([self.delegate collectionView:self.collectionView layout:self heightItemAtIndexPath:indexPath withWidth:itemWidth]);
+        itemHeight = floorf([self.delegate collectionView:self.collectionView layout:self heightItemAtIndexPath:indexPath withWidth:itemWidth]);
     }else{
         NSAssert(NO, @"YH_WaterFallFlowLayout : At least one of collectionView:layout:heightItemAtIndexPath: or collectionView:layout:aspectRatioForIndexPath: methods must be implemented by the layout delegate");
     }
@@ -268,7 +302,7 @@
         
         UIEdgeInsets sectionInset = [self insetsForSection:section];
         CGFloat itemSpacing = [self itemSpacingInSection:section];
-        CGFloat itemWidth=floorf((self.collectionView.bounds.size.width-sectionInset.left-sectionInset.right-((columnCountInSection-1)*itemSpacing))/(CGFloat)columnCountInSection);
+        CGFloat itemWidth = floorf((self.collectionView.bounds.size.width-sectionInset.left-sectionInset.right-((columnCountInSection-1)*itemSpacing))/(CGFloat)columnCountInSection);
         NSInteger sectionItemsCount = [[self collectionView] numberOfItemsInSection:section];
         
         self.itemAttributes[section] = [NSMutableArray arrayWithCapacity:sectionItemsCount];
@@ -336,7 +370,7 @@
 - (void)addVisibleHeadersToLayoutAttributes:(NSMutableArray *)attributes fromVisibleSectionsWithoutHeader:(NSArray *)visibleSectionsWithoutHeader {
     for (NSNumber *sectionNumber in visibleSectionsWithoutHeader) {
         if ([self shouldStickHeaderToTopInSection:[sectionNumber integerValue]]) {
-            UICollectionViewLayoutAttributes *headerAttributes=[self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:[sectionNumber integerValue]]];
+            UICollectionViewLayoutAttributes *headerAttributes = [self layoutAttributesForSupplementaryViewOfKind:UICollectionElementKindSectionHeader atIndexPath:[NSIndexPath indexPathForItem:0 inSection:[sectionNumber integerValue]]];
             if (headerAttributes.frame.size.width>0 && headerAttributes.frame.size.height>0) {
                 [attributes addObject:headerAttributes];
             }
@@ -403,8 +437,9 @@
 }
 
 - (void)updateStickedHeadersAttributesInLayoutAttributes:(NSMutableArray *)attributes {
+    
     for (UICollectionViewLayoutAttributes *itemAttributes in attributes) {
-        if (itemAttributes.representedElementKind==UICollectionElementKindSectionHeader) {
+        if (itemAttributes.representedElementKind == UICollectionElementKindSectionHeader) {
             UICollectionViewLayoutAttributes *headerAttributes = itemAttributes;
             if ([self shouldStickHeaderToTopInSection:headerAttributes.indexPath.section]) {
                 CGRect frame = headerAttributes.frame;
@@ -412,6 +447,9 @@
                 frame = [self correctStickedHeaderFrame:frame relativeToSameSectionFooterWithHeaderAttributes:headerAttributes];
                 frame = [self correctStickedHeaderFrame:frame relativeToNextSectionHeaderWithHeaderAttributes:headerAttributes];
                 frame = [self correctStickedHeaderFrame:frame relativeToBottomLimitInSameSectionWithHeaderAttributes:headerAttributes];
+                
+                NSLog(@"corrected frame is : %@", NSStringFromCGRect(frame));
+                
                 headerAttributes.frame = frame;
             }
             headerAttributes.zIndex = 1024;
