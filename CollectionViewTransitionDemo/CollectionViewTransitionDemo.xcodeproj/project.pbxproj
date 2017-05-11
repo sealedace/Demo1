@@ -23,6 +23,11 @@
 		506983E51EC1F07A00D2C292 /* cat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E11EC1F07A00D2C292 /* cat2.jpg */; };
 		506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E21EC1F07A00D2C292 /* cat3.jpg */; };
 		506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E31EC1F07A00D2C292 /* cat4.jpg */; };
+		506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */; };
+		506983ED1EC4150800D2C292 /* YH_PhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */; };
+		506983F01EC43EA500D2C292 /* YH_ImageScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */; };
+		506983F31EC4428800D2C292 /* YH_ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983F21EC4428800D2C292 /* YH_ImageScrollView.m */; };
+		506983F61EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,17 @@
 		506983E11EC1F07A00D2C292 /* cat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat2.jpg; sourceTree = "<group>"; };
 		506983E21EC1F07A00D2C292 /* cat3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat3.jpg; sourceTree = "<group>"; };
 		506983E31EC1F07A00D2C292 /* cat4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat4.jpg; sourceTree = "<group>"; };
+		506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionManager.h; sourceTree = "<group>"; };
+		506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionManager.m; sourceTree = "<group>"; };
+		506983EB1EC4150800D2C292 /* YH_PhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PhotoBrowserViewController.h; sourceTree = "<group>"; };
+		506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PhotoBrowserViewController.m; sourceTree = "<group>"; };
+		506983EE1EC43EA500D2C292 /* YH_ImageScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollerViewController.h; sourceTree = "<group>"; };
+		506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollerViewController.m; sourceTree = "<group>"; };
+		506983F11EC4428800D2C292 /* YH_ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollView.h; sourceTree = "<group>"; };
+		506983F21EC4428800D2C292 /* YH_ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollView.m; sourceTree = "<group>"; };
+		506983F41EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PresentAnimatedTransitioningObject.h; sourceTree = "<group>"; };
+		506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PresentAnimatedTransitioningObject.m; sourceTree = "<group>"; };
+		506983F71EC4591E00D2C292 /* YH_ImageScrollView+internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YH_ImageScrollView+internal.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +118,17 @@
 				506983DA1EC1EABD00D2C292 /* DemoSectionHeader.h */,
 				506983DB1EC1EABD00D2C292 /* DemoSectionHeader.m */,
 				506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */,
+				506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */,
+				506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */,
+				506983EB1EC4150800D2C292 /* YH_PhotoBrowserViewController.h */,
+				506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */,
+				506983EE1EC43EA500D2C292 /* YH_ImageScrollerViewController.h */,
+				506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */,
+				506983F11EC4428800D2C292 /* YH_ImageScrollView.h */,
+				506983F21EC4428800D2C292 /* YH_ImageScrollView.m */,
+				506983F41EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.h */,
+				506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */,
+				506983F71EC4591E00D2C292 /* YH_ImageScrollView+internal.h */,
 			);
 			path = CollectionViewTransitionDemo;
 			sourceTree = "<group>";
@@ -205,11 +232,16 @@
 			files = (
 				506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */,
 				506983C01EC174FD00D2C292 /* ViewController.m in Sources */,
+				506983F61EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m in Sources */,
 				506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */,
+				506983ED1EC4150800D2C292 /* YH_PhotoBrowserViewController.m in Sources */,
+				506983F31EC4428800D2C292 /* YH_ImageScrollView.m in Sources */,
 				506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */,
 				506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */,
 				506983BA1EC174FD00D2C292 /* main.m in Sources */,
 				506983D11EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m in Sources */,
+				506983F01EC43EA500D2C292 /* YH_ImageScrollerViewController.m in Sources */,
+				506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +363,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = WKQV5DN8XZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CollectionViewTransitionDemo",
+				);
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.SealedCompany.CollectionViewTransitionDemo;
@@ -345,6 +381,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = WKQV5DN8XZ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CollectionViewTransitionDemo",
+				);
 				INFOPLIST_FILE = CollectionViewTransitionDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.SealedCompany.CollectionViewTransitionDemo;

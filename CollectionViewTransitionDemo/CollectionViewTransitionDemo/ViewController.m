@@ -13,13 +13,15 @@
 #import "DemoSectionHeader.h"
 
 #import "YH_WaterFallFlowLayout.h"
+#import "YH_PhotoBrowserViewController.h"
 
 typedef NS_ENUM(NSInteger, LayoutType) {
     LayoutType_Waterfall = 0,
 };
 
 @interface ViewController ()
-<UICollectionViewDelegate, UICollectionViewDataSource, YH_WaterFallFlowLayoutDelegate>
+<UICollectionViewDataSource, YH_WaterFallFlowLayoutDelegate,
+YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 
 @property (strong, nonatomic) DummyDataSource *dataSource;
 @property (nonatomic) NSInteger numberOfColumns;
@@ -57,8 +59,6 @@ typedef NS_ENUM(NSInteger, LayoutType) {
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.alwaysBounceVertical = YES;
-//        _collectionView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame), 0.f, 0.f, 0.f);
-//        _collectionView.scrollIndicatorInsets = _collectionView.contentInset;
     }
     return _collectionView;
 }
@@ -104,10 +104,7 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     DemoCollectionViewCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DemoCollectionViewCell class])
                                                                               forIndexPath:indexPath];
     cell.nameLabel.text = [NSString stringWithFormat:@"%zd-%zd", indexPath.section, indexPath.item];
-    NSInteger randomNumber = 1+indexPath.item%4;
-    NSString *imageName = [NSString stringWithFormat:@"cat%zd.jpg", randomNumber];
-//    NSString *imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
-    cell.coverImageView.image = [UIImage imageNamed:imageName];
+    cell.coverImageView.image = [self.dataSource dataAtIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor grayColor];
     
@@ -135,6 +132,13 @@ typedef NS_ENUM(NSInteger, LayoutType) {
 }
 
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    YH_PhotoBrowserViewController *vc = [[YH_PhotoBrowserViewController alloc] init];
+    vc.yh_delegate = self;
+    vc.yh_dataSource = self;
+    vc.yh_startPage = indexPath.item;
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 #pragma mark - YH_WaterFallFlowLayoutDelegate
 - (NSUInteger)collectionView:(UICollectionView *)collectionView layout:(YH_WaterFallFlowLayout *)collectionViewLayout numberOfColumnsInSection:(NSUInteger)section {
@@ -180,6 +184,37 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     
     return NO;
 }
+
+#pragma mark - YH_PhotoBrowserDataSource
+
+- (NSInteger)numberOfPagesInViewController:(YH_PhotoBrowserViewController *)viewController {
+    return [self.dataSource numberOfItemsInSection:0];
+}
+
+- (UIImage *)viewController:(YH_PhotoBrowserViewController *)viewController imageForPageAtIndex:(NSInteger)index {
+    
+    return [self.dataSource dataAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+}
+
+- (UIView *)thumbViewForPageAtIndex:(NSInteger)index {
+    
+    DemoCollectionViewCell *cell = (DemoCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
+    return cell.coverImageView;
+    
+//    if (self.thumb) {
+//        return self.imageViews[index];
+//    }
+}
+
+#pragma mark - YH_PhotoBrowserDelegate
+
+//- (void)viewController:(PBViewController *)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+//
+//- (void)viewController:(PBViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
+//    NSLog(@"didLongPressedPageAtIndex: %@", @(index));
+//}
 
 #pragma mark - Private
 - (void)increaseColumn {

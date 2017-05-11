@@ -45,6 +45,12 @@
     return [self.items[section] count];
 }
 
+- (id)dataAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger randomNumber = 1+indexPath.item%4;
+    NSString *imageName = [NSString stringWithFormat:@"cat%zd.jpg", randomNumber];
+    return [UIImage imageNamed:imageName];
+}
+
 #pragma mark - UICollectionViewDataSourcePrefetching
 
 // indexPaths are ordered ascending by geometric distance from the collection view

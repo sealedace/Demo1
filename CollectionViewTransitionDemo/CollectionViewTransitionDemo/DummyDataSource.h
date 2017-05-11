@@ -16,6 +16,8 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 
+- (id)dataAtIndexPath:(NSIndexPath *)indexPath;
+
 //- (void)loadNew;
 //
 //- (void)loadMore;
