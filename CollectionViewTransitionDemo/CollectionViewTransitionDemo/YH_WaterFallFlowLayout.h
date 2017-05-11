@@ -34,8 +34,16 @@
 
 @property (weak, nonatomic) id<YH_WaterFallFlowLayoutDelegate> delegate;
 
-@property (nonatomic, assign) NSUInteger columnCount;
 @property (nonatomic, assign) CGFloat itemSpacing;
 @property (nonatomic, assign) UIEdgeInsets sectionInset;
+
+
+- (void)notifyCollectionViewRelayoutAnimated:(BOOL)animated;
+
+@end
+
+#pragma mark - UICollectionView(YH_WaterFallFlowLayout)
+
+@interface UICollectionView (YH_WaterFallFlowLayout)
 
 @end

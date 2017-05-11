@@ -22,7 +22,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _columnCount = 2;
         _itemSpacing = 0.0;
         _sectionInset = UIEdgeInsetsZero;
     }
@@ -111,13 +110,6 @@
 }
 
 #pragma mark - Accessors
-- (void)setColumnCount:(NSUInteger)columnCount{
-    if (_columnCount != columnCount) {
-        _columnCount = columnCount;
-        [self invalidateLayout];
-    }
-}
-
 - (void)setSectionInset:(UIEdgeInsets)sectionInset{
     if (!UIEdgeInsetsEqualToEdgeInsets(_sectionInset, sectionInset)) {
         _sectionInset = sectionInset;
@@ -448,13 +440,35 @@
                 frame = [self correctStickedHeaderFrame:frame relativeToNextSectionHeaderWithHeaderAttributes:headerAttributes];
                 frame = [self correctStickedHeaderFrame:frame relativeToBottomLimitInSameSectionWithHeaderAttributes:headerAttributes];
                 
-                NSLog(@"corrected frame is : %@", NSStringFromCGRect(frame));
-                
                 headerAttributes.frame = frame;
             }
             headerAttributes.zIndex = 1024;
         }
     }
 }
+
+#pragma mark - Public
+- (void)notifyCollectionViewRelayoutAnimated:(BOOL)animated {
+    
+    if (animated) {
+    
+        [self.collectionView performBatchUpdates:^{
+            [self.collectionView.collectionViewLayout invalidateLayout];
+            [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
+            
+        } completion:^(BOOL finished) {
+        }];
+    } else {
+        [self.collectionView.collectionViewLayout invalidateLayout];
+        [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:NO];
+    }
+}
+
+@end
+
+#pragma mark - UICollectionView(YH_WaterFallFlowLayout)
+
+@implementation UICollectionView (YH_WaterFallFlowLayout)
+
 
 @end

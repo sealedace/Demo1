@@ -57,6 +57,8 @@ typedef NS_ENUM(NSInteger, LayoutType) {
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.alwaysBounceVertical = YES;
+//        _collectionView.contentInset = UIEdgeInsetsMake(CGRectGetMaxY(self.navigationController.navigationBar.frame), 0.f, 0.f, 0.f);
+//        _collectionView.scrollIndicatorInsets = _collectionView.contentInset;
     }
     return _collectionView;
 }
@@ -77,12 +79,16 @@ typedef NS_ENUM(NSInteger, LayoutType) {
 
     self.collectionView.prefetchDataSource = self.dataSource;
     
-    self.collectionView.prefetchingEnabled = NO;
+    self.collectionView.prefetchingEnabled = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"Water Fall";
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -183,11 +189,7 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     
     self.numberOfColumns++;
     
-    [self.collectionView performBatchUpdates:^{
-        [self.collectionView.collectionViewLayout invalidateLayout];
-        [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
-    } completion:^(BOOL finished) {
-    }];
+    [self.collectionViewLayout notifyCollectionViewRelayoutAnimated:YES];
 }
 
 - (void)decreaseColumn {
@@ -197,12 +199,7 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     
     self.numberOfColumns--;
     
-    [self.collectionView performBatchUpdates:^{
-        [self.collectionView.collectionViewLayout invalidateLayout];
-        [self.collectionView setCollectionViewLayout:self.collectionView.collectionViewLayout animated:YES];
-        
-    } completion:^(BOOL finished) {
-    }];
+    [self.collectionViewLayout notifyCollectionViewRelayoutAnimated:YES];
 }
 
 @end
