@@ -205,13 +205,13 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 
 #pragma mark - YH_PhotoBrowserDelegate
 
-//- (void)viewController:(PBViewController *)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-//
-//- (void)viewController:(PBViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
-//    NSLog(@"didLongPressedPageAtIndex: %@", @(index));
-//}
+- (void)viewController:(YH_PhotoBrowserViewController *)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)viewController:(YH_PhotoBrowserViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
+    NSLog(@"didLongPressedPageAtIndex: %@", @(index));
+}
 
 #pragma mark - Private
 - (void)increaseColumn {

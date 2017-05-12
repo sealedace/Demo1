@@ -13,6 +13,8 @@
 
 @interface YH_ImageScrollView ()
 
+- (void)_handleZoomForLocation:(CGPoint)location;
+
 /// Scrolling content offset'y percent.
 @property (nonatomic, copy) void(^contentOffSetVerticalPercentHandler)(CGFloat);
 

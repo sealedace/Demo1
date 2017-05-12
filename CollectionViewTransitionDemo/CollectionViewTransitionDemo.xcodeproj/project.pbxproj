@@ -13,7 +13,6 @@
 		506983C31EC174FD00D2C292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506983C11EC174FD00D2C292 /* Main.storyboard */; };
 		506983C51EC174FD00D2C292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 506983C41EC174FD00D2C292 /* Assets.xcassets */; };
 		506983C81EC174FD00D2C292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 506983C61EC174FD00D2C292 /* LaunchScreen.storyboard */; };
-		506983D11EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */; };
 		506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D31EC1A5F800D2C292 /* DummyDataSource.m */; };
 		506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983D61EC1AA0A00D2C292 /* DemoCollectionViewCell.m */; };
 		506983D91EC1AA0A00D2C292 /* DemoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 506983D71EC1AA0A00D2C292 /* DemoCollectionViewCell.xib */; };
@@ -24,10 +23,11 @@
 		506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E21EC1F07A00D2C292 /* cat3.jpg */; };
 		506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E31EC1F07A00D2C292 /* cat4.jpg */; };
 		506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */; };
-		506983ED1EC4150800D2C292 /* YH_PhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */; };
-		506983F01EC43EA500D2C292 /* YH_ImageScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */; };
-		506983F31EC4428800D2C292 /* YH_ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983F21EC4428800D2C292 /* YH_ImageScrollView.m */; };
-		506983F61EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */; };
+		506CD6DE1EC56466007F931B /* YH_ImageScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D31EC56466007F931B /* YH_ImageScrollerViewController.m */; };
+		506CD6DF1EC56466007F931B /* YH_ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D61EC56466007F931B /* YH_ImageScrollView.m */; };
+		506CD6E01EC56466007F931B /* YH_PhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D81EC56466007F931B /* YH_PhotoBrowserViewController.m */; };
+		506CD6E11EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6DA1EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m */; };
+		506CD6E21EC56466007F931B /* YH_WaterFallFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +41,6 @@
 		506983C41EC174FD00D2C292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		506983C71EC174FD00D2C292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		506983C91EC174FD00D2C292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		506983CF1EC1A25C00D2C292 /* YH_WaterFallFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_WaterFallFlowLayout.h; sourceTree = "<group>"; };
-		506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_WaterFallFlowLayout.m; sourceTree = "<group>"; };
 		506983D21EC1A5F800D2C292 /* DummyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyDataSource.h; sourceTree = "<group>"; };
 		506983D31EC1A5F800D2C292 /* DummyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyDataSource.m; sourceTree = "<group>"; };
 		506983D51EC1AA0A00D2C292 /* DemoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCollectionViewCell.h; sourceTree = "<group>"; };
@@ -57,15 +55,17 @@
 		506983E31EC1F07A00D2C292 /* cat4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat4.jpg; sourceTree = "<group>"; };
 		506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionManager.h; sourceTree = "<group>"; };
 		506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionManager.m; sourceTree = "<group>"; };
-		506983EB1EC4150800D2C292 /* YH_PhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PhotoBrowserViewController.h; sourceTree = "<group>"; };
-		506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PhotoBrowserViewController.m; sourceTree = "<group>"; };
-		506983EE1EC43EA500D2C292 /* YH_ImageScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollerViewController.h; sourceTree = "<group>"; };
-		506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollerViewController.m; sourceTree = "<group>"; };
-		506983F11EC4428800D2C292 /* YH_ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollView.h; sourceTree = "<group>"; };
-		506983F21EC4428800D2C292 /* YH_ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollView.m; sourceTree = "<group>"; };
-		506983F41EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PresentAnimatedTransitioningObject.h; sourceTree = "<group>"; };
-		506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PresentAnimatedTransitioningObject.m; sourceTree = "<group>"; };
-		506983F71EC4591E00D2C292 /* YH_ImageScrollView+internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YH_ImageScrollView+internal.h"; sourceTree = "<group>"; };
+		506CD6D21EC56466007F931B /* YH_ImageScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollerViewController.h; sourceTree = "<group>"; };
+		506CD6D31EC56466007F931B /* YH_ImageScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollerViewController.m; sourceTree = "<group>"; };
+		506CD6D41EC56466007F931B /* YH_ImageScrollView+internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YH_ImageScrollView+internal.h"; sourceTree = "<group>"; };
+		506CD6D51EC56466007F931B /* YH_ImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollView.h; sourceTree = "<group>"; };
+		506CD6D61EC56466007F931B /* YH_ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollView.m; sourceTree = "<group>"; };
+		506CD6D71EC56466007F931B /* YH_PhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PhotoBrowserViewController.h; sourceTree = "<group>"; };
+		506CD6D81EC56466007F931B /* YH_PhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PhotoBrowserViewController.m; sourceTree = "<group>"; };
+		506CD6D91EC56466007F931B /* YH_PresentAnimatedTransitioningObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_PresentAnimatedTransitioningObject.h; sourceTree = "<group>"; };
+		506CD6DA1EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PresentAnimatedTransitioningObject.m; sourceTree = "<group>"; };
+		506CD6DC1EC56466007F931B /* YH_WaterFallFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_WaterFallFlowLayout.h; sourceTree = "<group>"; };
+		506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_WaterFallFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +98,8 @@
 		506983B71EC174FD00D2C292 /* CollectionViewTransitionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				506CD6D11EC56466007F931B /* PhotoBrowser */,
+				506CD6DB1EC56466007F931B /* WaterfallLayout */,
 				506983DF1EC1F07A00D2C292 /* images */,
 				506983BB1EC174FD00D2C292 /* AppDelegate.h */,
 				506983BC1EC174FD00D2C292 /* AppDelegate.m */,
@@ -108,8 +110,6 @@
 				506983C61EC174FD00D2C292 /* LaunchScreen.storyboard */,
 				506983C91EC174FD00D2C292 /* Info.plist */,
 				506983B81EC174FD00D2C292 /* Supporting Files */,
-				506983CF1EC1A25C00D2C292 /* YH_WaterFallFlowLayout.h */,
-				506983D01EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m */,
 				506983D21EC1A5F800D2C292 /* DummyDataSource.h */,
 				506983D31EC1A5F800D2C292 /* DummyDataSource.m */,
 				506983D51EC1AA0A00D2C292 /* DemoCollectionViewCell.h */,
@@ -120,15 +120,6 @@
 				506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */,
 				506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */,
 				506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */,
-				506983EB1EC4150800D2C292 /* YH_PhotoBrowserViewController.h */,
-				506983EC1EC4150800D2C292 /* YH_PhotoBrowserViewController.m */,
-				506983EE1EC43EA500D2C292 /* YH_ImageScrollerViewController.h */,
-				506983EF1EC43EA500D2C292 /* YH_ImageScrollerViewController.m */,
-				506983F11EC4428800D2C292 /* YH_ImageScrollView.h */,
-				506983F21EC4428800D2C292 /* YH_ImageScrollView.m */,
-				506983F41EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.h */,
-				506983F51EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m */,
-				506983F71EC4591E00D2C292 /* YH_ImageScrollView+internal.h */,
 			);
 			path = CollectionViewTransitionDemo;
 			sourceTree = "<group>";
@@ -150,6 +141,31 @@
 				506983E31EC1F07A00D2C292 /* cat4.jpg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		506CD6D11EC56466007F931B /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				506CD6D21EC56466007F931B /* YH_ImageScrollerViewController.h */,
+				506CD6D31EC56466007F931B /* YH_ImageScrollerViewController.m */,
+				506CD6D41EC56466007F931B /* YH_ImageScrollView+internal.h */,
+				506CD6D51EC56466007F931B /* YH_ImageScrollView.h */,
+				506CD6D61EC56466007F931B /* YH_ImageScrollView.m */,
+				506CD6D71EC56466007F931B /* YH_PhotoBrowserViewController.h */,
+				506CD6D81EC56466007F931B /* YH_PhotoBrowserViewController.m */,
+				506CD6D91EC56466007F931B /* YH_PresentAnimatedTransitioningObject.h */,
+				506CD6DA1EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m */,
+			);
+			path = PhotoBrowser;
+			sourceTree = "<group>";
+		};
+		506CD6DB1EC56466007F931B /* WaterfallLayout */ = {
+			isa = PBXGroup;
+			children = (
+				506CD6DC1EC56466007F931B /* YH_WaterFallFlowLayout.h */,
+				506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */,
+			);
+			path = WaterfallLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,16 +248,16 @@
 			files = (
 				506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */,
 				506983C01EC174FD00D2C292 /* ViewController.m in Sources */,
-				506983F61EC4550000D2C292 /* YH_PresentAnimatedTransitioningObject.m in Sources */,
 				506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */,
-				506983ED1EC4150800D2C292 /* YH_PhotoBrowserViewController.m in Sources */,
-				506983F31EC4428800D2C292 /* YH_ImageScrollView.m in Sources */,
 				506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */,
 				506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */,
+				506CD6E01EC56466007F931B /* YH_PhotoBrowserViewController.m in Sources */,
+				506CD6DF1EC56466007F931B /* YH_ImageScrollView.m in Sources */,
+				506CD6E11EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m in Sources */,
 				506983BA1EC174FD00D2C292 /* main.m in Sources */,
-				506983D11EC1A25C00D2C292 /* YH_WaterFallFlowLayout.m in Sources */,
-				506983F01EC43EA500D2C292 /* YH_ImageScrollerViewController.m in Sources */,
+				506CD6DE1EC56466007F931B /* YH_ImageScrollerViewController.m in Sources */,
 				506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */,
+				506CD6E21EC56466007F931B /* YH_WaterFallFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +428,7 @@
 				506983CE1EC174FD00D2C292 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

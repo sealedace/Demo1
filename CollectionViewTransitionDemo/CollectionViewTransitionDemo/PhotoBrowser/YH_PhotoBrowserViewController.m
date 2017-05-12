@@ -31,6 +31,11 @@ UIPageViewControllerDataSource>
 
 @property (nonatomic, strong) UIImageView *thumbDoppelgangerView;
 
+// Gestures
+@property (nonatomic, strong) UITapGestureRecognizer *singleTapGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *doubleTapGestureRecognizer;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
 @end
 
 @implementation YH_PhotoBrowserViewController
@@ -85,6 +90,12 @@ UIPageViewControllerDataSource>
     self.delegate = self;
     
     [self _setupTransitioningObject];
+    
+    [self.view addGestureRecognizer:self.longPressGestureRecognizer];
+    [self.view addGestureRecognizer:self.doubleTapGestureRecognizer];
+    [self.view addGestureRecognizer:self.singleTapGestureRecognizer];
+    [self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.longPressGestureRecognizer];
+    [self.singleTapGestureRecognizer requireGestureRecognizerToFail:self.doubleTapGestureRecognizer];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -94,6 +105,28 @@ UIPageViewControllerDataSource>
 }
 
 #pragma mark - Getters
+- (UITapGestureRecognizer *)singleTapGestureRecognizer {
+    if (!_singleTapGestureRecognizer) {
+        _singleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_handleSingleTapAction:)];
+    }
+    return _singleTapGestureRecognizer;
+}
+
+- (UITapGestureRecognizer *)doubleTapGestureRecognizer {
+    if (!_doubleTapGestureRecognizer) {
+        _doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_handleDoubleTapAction:)];
+        _doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    }
+    return _doubleTapGestureRecognizer;
+}
+
+- (UILongPressGestureRecognizer *)longPressGestureRecognizer {
+    if (!_longPressGestureRecognizer) {
+        _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(_handleLongPressAction:)];
+    }
+    return _longPressGestureRecognizer;
+}
+
 - (UIView *)blurBackgroundView {
     if (!_blurBackgroundView) {
         UIToolbar *view = [[UIToolbar alloc] initWithFrame:self.view.bounds];
@@ -339,6 +372,8 @@ UIPageViewControllerDataSource>
         // 还原到页面顶部
         [imageScrollView setContentOffset:CGPointZero animated:NO];
     }
+    
+    self.currentThumbView.hidden = YES;
 }
 
 - (void)_duringDismissing {
@@ -419,6 +454,44 @@ UIPageViewControllerDataSource>
     }
     
     return imageScrollerViewController;
+}
+
+#pragma mark - Gesture handlers
+- (void)_handleSingleTapAction:(UITapGestureRecognizer *)sender {
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    if (!self.yh_delegate) {
+        return;
+    }
+    
+    if ([self.yh_delegate respondsToSelector:@selector(viewController:didSingleTapedPageAtIndex:presentedImage:)]) {
+        [self.yh_delegate viewController:self didSingleTapedPageAtIndex:self.currentPage presentedImage:self.currentScrollViewController.imageScrollView.imageView.image];
+    }
+    
+}
+
+- (void)_handleDoubleTapAction:(UITapGestureRecognizer *)sender {
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    CGPoint location = [sender locationInView:self.view];
+    YH_ImageScrollView *imageScrollView = self.currentScrollViewController.imageScrollView;
+    [imageScrollView _handleZoomForLocation:location];
+}
+
+- (void)_handleLongPressAction:(UILongPressGestureRecognizer *)sender {
+    if (sender.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    if (!self.yh_delegate) {
+        return;
+    }
+    
+    if ([self.yh_delegate respondsToSelector:@selector(viewController:didLongPressedPageAtIndex:presentedImage:)]) {
+        [self.yh_delegate viewController:self didLongPressedPageAtIndex:self.currentPage presentedImage:self.currentScrollViewController.imageScrollView.imageView.image];
+    }
+    
 }
 
 @end

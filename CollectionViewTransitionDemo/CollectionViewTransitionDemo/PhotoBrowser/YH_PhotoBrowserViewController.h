@@ -11,7 +11,9 @@
 @class YH_PhotoBrowserViewController;
 
 @protocol YH_PhotoBrowserDelegate <NSObject>
+- (void)viewController:(YH_PhotoBrowserViewController * _Nonnull)viewController didSingleTapedPageAtIndex:(NSInteger)index presentedImage:(UIImage * _Nullable)presentedImage;
 
+- (void)viewController:(YH_PhotoBrowserViewController * _Nonnull)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(UIImage * _Nullable)presentedImage;
 
 @end
 
