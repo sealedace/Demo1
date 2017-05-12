@@ -67,17 +67,17 @@
     if (self.prepareForDismissActionHandler) {
         self.prepareForDismissActionHandler(fromView, toView);
     }
-    __weak typeof(self) weak_self = self;
+    __weak typeof(self) weakSelf = self;
     [self _runAnimations:^{
-        __strong typeof(weak_self) strong_self = weak_self;
-        strong_self.coverView.alpha = 0;
-        if (strong_self.duringDismissingActionHandler) {
-            strong_self.duringDismissingActionHandler(fromView, toView);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf.coverView.alpha = 0;
+        if (strongSelf.duringDismissingActionHandler) {
+            strongSelf.duringDismissingActionHandler(fromView, toView);
         }
     } completion:^(BOOL flag) {
-        __strong typeof(weak_self) strong_self = weak_self;
-        if (strong_self.didDismissedActionHandler) {
-            strong_self.didDismissedActionHandler(fromView, toView);
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        if (strongSelf.didDismissedActionHandler) {
+            strongSelf.didDismissedActionHandler(fromView, toView);
         }
         completion(flag);
     }];

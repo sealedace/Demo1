@@ -78,8 +78,8 @@ UIPageViewControllerDataSource>
     // Blur background
     [self _addBlurBackgroundView];
     
-    self.view.layer.contents = (id)[[self _snapshotView:self.presentingViewController.view afterScreenUpdates:NO] CGImage];
-//    self.view.backgroundColor = [UIColor blackColor];
+//    self.view.layer.contents = (id)[[self _snapshotView:self.presentingViewController.view afterScreenUpdates:NO] CGImage];
+    self.view.backgroundColor = [UIColor clearColor];
     
     self.dataSource = self;
     self.delegate = self;
@@ -245,7 +245,7 @@ UIPageViewControllerDataSource>
     };
     self.transitioningObject.didPresentedActionHandler = ^(UIView *fromView, UIView *toView) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf _didPresented];
+        [strongSelf _didPresent];
     };
     self.transitioningObject.prepareForDismissActionHandler = ^(UIView *fromView, UIView *toView) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -256,6 +256,8 @@ UIPageViewControllerDataSource>
         [strongSelf _duringDismissing];
     };
     self.transitioningObject.didDismissedActionHandler = ^(UIView *fromView, UIView *toView) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf _didDidmiss];
     };
 }
 
@@ -275,6 +277,8 @@ UIPageViewControllerDataSource>
     self.thumbDoppelgangerView.clipsToBounds = thumbView.clipsToBounds;
     self.thumbDoppelgangerView.backgroundColor = thumbView.backgroundColor;
     [self.view addSubview:self.thumbDoppelgangerView];
+    
+    thumbView.hidden = YES;
 }
 
 - (void)_duringPresenting {
@@ -301,7 +305,7 @@ UIPageViewControllerDataSource>
     self.thumbDoppelgangerView.frame = newFrame;
 }
 
-- (void)_didPresented {
+- (void)_didPresent {
     self.currentScrollViewController.view.alpha = 1;
     [self.thumbDoppelgangerView removeFromSuperview];
     self.thumbDoppelgangerView.image = nil;
@@ -382,6 +386,10 @@ UIPageViewControllerDataSource>
     }
     
     imageView.frame = destFrame;
+}
+
+- (void)_didDidmiss {
+    self.currentThumbView.hidden = NO;
 }
 
 - (YH_ImageScrollerViewController * _Nullable)_imageScrollerViewControllerForPage:(NSInteger)page {

@@ -105,9 +105,6 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
                                                                               forIndexPath:indexPath];
     cell.nameLabel.text = [NSString stringWithFormat:@"%zd-%zd", indexPath.section, indexPath.item];
     cell.coverImageView.image = [self.dataSource dataAtIndexPath:indexPath];
-    
-    cell.backgroundColor = [UIColor grayColor];
-    
     return cell;
 }
 
