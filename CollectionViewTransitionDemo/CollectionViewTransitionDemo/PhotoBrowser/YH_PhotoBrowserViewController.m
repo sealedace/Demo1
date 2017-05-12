@@ -150,7 +150,13 @@ UIPageViewControllerDataSource>
             __weak typeof(self) weakSelf = self;
             imageScrollerViewController.imageScrollView.contentOffSetVerticalPercentHandler = ^(CGFloat percent) {
                 __strong typeof(weakSelf) strongSelf = weakSelf;
-                strongSelf.blurBackgroundView.alpha = 1.0f - percent;
+                
+                CGFloat p = percent * -1;
+                if (p>0) {
+                    strongSelf.blurBackgroundView.alpha = 1.0f - p;
+                } else {
+                    strongSelf.blurBackgroundView.alpha = 1.0f;
+                }
             };
             imageScrollerViewController.imageScrollView.didEndDraggingInProperpositionHandler = ^(CGFloat direction){
                 __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -399,7 +405,8 @@ UIPageViewControllerDataSource>
         destFrame = [thumbView.superview convertRect:thumbView.frame toView:currentScrollViewController.view];
         // 把 contentInset 考虑进来。
         CGFloat verticalInset = imageScrollView.contentInset.top + imageScrollView.contentInset.bottom;
-        destFrame = CGRectMake(CGRectGetMinX(destFrame), CGRectGetMinY(destFrame) - verticalInset, CGRectGetWidth(destFrame), CGRectGetHeight(destFrame));
+        CGFloat horizontalInset = imageScrollView.contentInset.left + imageScrollView.contentInset.right;
+        destFrame = CGRectMake(CGRectGetMinX(destFrame) - horizontalInset, CGRectGetMinY(destFrame) - verticalInset, CGRectGetWidth(destFrame), CGRectGetHeight(destFrame));
     } else {
         // 移动到屏幕外然后 dismiss.
         if (0 == self.direction) {

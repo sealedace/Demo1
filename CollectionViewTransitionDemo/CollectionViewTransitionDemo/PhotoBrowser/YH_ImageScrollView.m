@@ -10,11 +10,13 @@
 #import "YH_ImageScrollView+internal.h"
 
 @interface YH_ImageScrollView ()
+<UIGestureRecognizerDelegate>
 @property (nonatomic, strong, readwrite) UIImageView *imageView;
 @property (nonatomic, weak) id <NSObject> notification;
 /// direction: > 0 up, < 0 dwon, == 0 others(no swipe, e.g. tap).
 @property (nonatomic, assign) CGFloat direction;
 @property (nonatomic, assign) BOOL dismissing;
+
 @end
 
 @implementation YH_ImageScrollView
@@ -34,7 +36,8 @@
     self.multipleTouchEnabled = YES;
     self.showsVerticalScrollIndicator = YES;
     self.showsHorizontalScrollIndicator = YES;
-    self.alwaysBounceVertical = NO;
+//    self.alwaysBounceVertical = YES;
+    self.alwaysBounceHorizontal = YES;
     self.minimumZoomScale = 1.0f;
     self.maximumZoomScale = 1.0f;
     self.delegate = self;
@@ -177,9 +180,8 @@
     }
 }
 
-/// Only + percent.
 - (CGFloat)_contentOffSetVerticalPercent {
-    return fabs([self _rawContentOffSetVerticalPercent]);
+    return [self _rawContentOffSetVerticalPercent];
 }
 
 /// +/- percent.
@@ -216,7 +218,12 @@
     if (!self.contentOffSetVerticalPercentHandler) {
         return;
     }
-    self.contentOffSetVerticalPercentHandler([self _contentOffSetVerticalPercent]);
+    
+    CGFloat offsetVerticalPercent = [self _contentOffSetVerticalPercent];
+
+//    NSLog(@"offsetVerticalPercent: %f", offsetVerticalPercent);
+    
+    self.contentOffSetVerticalPercentHandler(offsetVerticalPercent);
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
@@ -224,28 +231,61 @@
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (!decelerate) {
-        return;
-    }
-    
-    // 停止时有相反方向滑动操作时取消退出操作
-    CGFloat rawPercent = [self _rawContentOffSetVerticalPercent];
-    if (rawPercent * self.direction < 0) {
-        return;
-    }
-    
-    if (self.didEndDraggingInProperpositionHandler && fabs(rawPercent) > 0.3f) {
-        // 取消回弹效果，所以计算 imageView 的 frame 的时候需要注意 contentInset.
-        scrollView.bounces = NO;
-        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-        self.didEndDraggingInProperpositionHandler(self.direction);
-        self.dismissing = YES;
-        return;
-    }
+//    if (!decelerate) {
+//        return;
+//    }
+//    
+//    NSLog(@"direction: %f", self.direction);
+//    
+//    // 停止时有相反方向滑动操作时取消退出操作
+//    CGFloat rawPercent = [self _rawContentOffSetVerticalPercent];
+//    
+//    if (rawPercent * self.direction < 0) {
+//        return;
+//    }
+//    
+//    if (self.direction > -1.f && fabs(rawPercent) <= 0.3f) {
+//        return;
+//    }
+//    
+//    if (self.didEndDraggingInProperpositionHandler && self.direction < 0) {
+//        // 取消回弹效果，所以计算 imageView 的 frame 的时候需要注意 contentInset.
+//        scrollView.bounces = NO;
+//        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        self.didEndDraggingInProperpositionHandler(self.direction);
+//        self.dismissing = YES;
+//        return;
+//    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     self.direction = velocity.y;
+    
+    NSLog(@"direction: %f", self.direction);
+    
+    // 停止时有相反方向滑动操作时取消退出操作
+    CGFloat rawPercent = [self _rawContentOffSetVerticalPercent];
+    
+    if (rawPercent * self.direction < 0) {
+        return;
+    }
+    
+    if (self.direction > -.5f && fabs(rawPercent) <= 0.3f) {
+        return;
+    }
+    
+    if (self.didEndDraggingInProperpositionHandler && self.direction < 0) {
+        // 取消回弹效果，所以计算 imageView 的 frame 的时候需要注意 contentInset.
+        scrollView.bounces = NO;
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, -scrollView.contentOffset.x, 0, 0);
+        
+        *targetContentOffset = scrollView.contentOffset;
+        
+        self.didEndDraggingInProperpositionHandler(self.direction);
+        self.dismissing = YES;
+        return;
+    }
+    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
