@@ -22,12 +22,16 @@
 		506983E51EC1F07A00D2C292 /* cat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E11EC1F07A00D2C292 /* cat2.jpg */; };
 		506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E21EC1F07A00D2C292 /* cat3.jpg */; };
 		506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 506983E31EC1F07A00D2C292 /* cat4.jpg */; };
-		506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */; };
 		506CD6DE1EC56466007F931B /* YH_ImageScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D31EC56466007F931B /* YH_ImageScrollerViewController.m */; };
 		506CD6DF1EC56466007F931B /* YH_ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D61EC56466007F931B /* YH_ImageScrollView.m */; };
 		506CD6E01EC56466007F931B /* YH_PhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6D81EC56466007F931B /* YH_PhotoBrowserViewController.m */; };
 		506CD6E11EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6DA1EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m */; };
 		506CD6E21EC56466007F931B /* YH_WaterFallFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */; };
+		50A3FBBD1EC95A16005E8768 /* DemoProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3FBBB1EC95A16005E8768 /* DemoProductViewController.m */; };
+		50A3FBBE1EC95A16005E8768 /* DemoProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50A3FBBC1EC95A16005E8768 /* DemoProductViewController.xib */; };
+		50A3FBC21EC9CC2B005E8768 /* YH_TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3FBC11EC9CC2B005E8768 /* YH_TransitionManager.m */; };
+		50A3FBC51EC9CC66005E8768 /* YH_TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3FBC41EC9CC66005E8768 /* YH_TransitionAnimator.m */; };
+		50A3FBC81ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3FBC71ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,8 +57,6 @@
 		506983E11EC1F07A00D2C292 /* cat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat2.jpg; sourceTree = "<group>"; };
 		506983E21EC1F07A00D2C292 /* cat3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat3.jpg; sourceTree = "<group>"; };
 		506983E31EC1F07A00D2C292 /* cat4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat4.jpg; sourceTree = "<group>"; };
-		506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionManager.h; sourceTree = "<group>"; };
-		506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionManager.m; sourceTree = "<group>"; };
 		506CD6D21EC56466007F931B /* YH_ImageScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_ImageScrollerViewController.h; sourceTree = "<group>"; };
 		506CD6D31EC56466007F931B /* YH_ImageScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_ImageScrollerViewController.m; sourceTree = "<group>"; };
 		506CD6D41EC56466007F931B /* YH_ImageScrollView+internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YH_ImageScrollView+internal.h"; sourceTree = "<group>"; };
@@ -66,6 +68,15 @@
 		506CD6DA1EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_PresentAnimatedTransitioningObject.m; sourceTree = "<group>"; };
 		506CD6DC1EC56466007F931B /* YH_WaterFallFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_WaterFallFlowLayout.h; sourceTree = "<group>"; };
 		506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_WaterFallFlowLayout.m; sourceTree = "<group>"; };
+		50A3FBBA1EC95A16005E8768 /* DemoProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoProductViewController.h; sourceTree = "<group>"; };
+		50A3FBBB1EC95A16005E8768 /* DemoProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoProductViewController.m; sourceTree = "<group>"; };
+		50A3FBBC1EC95A16005E8768 /* DemoProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoProductViewController.xib; sourceTree = "<group>"; };
+		50A3FBC01EC9CC2B005E8768 /* YH_TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionManager.h; sourceTree = "<group>"; };
+		50A3FBC11EC9CC2B005E8768 /* YH_TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionManager.m; sourceTree = "<group>"; };
+		50A3FBC31EC9CC66005E8768 /* YH_TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionAnimator.h; sourceTree = "<group>"; };
+		50A3FBC41EC9CC66005E8768 /* YH_TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionAnimator.m; sourceTree = "<group>"; };
+		50A3FBC61ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+YH_TransitionAnimator.h"; sourceTree = "<group>"; };
+		50A3FBC71ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+YH_TransitionAnimator.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +109,7 @@
 		506983B71EC174FD00D2C292 /* CollectionViewTransitionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				50A3FBBF1EC9CC06005E8768 /* TransitionCore */,
 				506CD6D11EC56466007F931B /* PhotoBrowser */,
 				506CD6DB1EC56466007F931B /* WaterfallLayout */,
 				506983DF1EC1F07A00D2C292 /* images */,
@@ -118,8 +130,9 @@
 				506983DA1EC1EABD00D2C292 /* DemoSectionHeader.h */,
 				506983DB1EC1EABD00D2C292 /* DemoSectionHeader.m */,
 				506983DC1EC1EABD00D2C292 /* DemoSectionHeader.xib */,
-				506983E81EC40B7C00D2C292 /* YH_TransitionManager.h */,
-				506983E91EC40B7C00D2C292 /* YH_TransitionManager.m */,
+				50A3FBBA1EC95A16005E8768 /* DemoProductViewController.h */,
+				50A3FBBB1EC95A16005E8768 /* DemoProductViewController.m */,
+				50A3FBBC1EC95A16005E8768 /* DemoProductViewController.xib */,
 			);
 			path = CollectionViewTransitionDemo;
 			sourceTree = "<group>";
@@ -166,6 +179,19 @@
 				506CD6DD1EC56466007F931B /* YH_WaterFallFlowLayout.m */,
 			);
 			path = WaterfallLayout;
+			sourceTree = "<group>";
+		};
+		50A3FBBF1EC9CC06005E8768 /* TransitionCore */ = {
+			isa = PBXGroup;
+			children = (
+				50A3FBC01EC9CC2B005E8768 /* YH_TransitionManager.h */,
+				50A3FBC11EC9CC2B005E8768 /* YH_TransitionManager.m */,
+				50A3FBC31EC9CC66005E8768 /* YH_TransitionAnimator.h */,
+				50A3FBC41EC9CC66005E8768 /* YH_TransitionAnimator.m */,
+				50A3FBC61ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.h */,
+				50A3FBC71ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m */,
+			);
+			path = TransitionCore;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +258,7 @@
 				506983E61EC1F07A00D2C292 /* cat3.jpg in Resources */,
 				506983C51EC174FD00D2C292 /* Assets.xcassets in Resources */,
 				506983E71EC1F07A00D2C292 /* cat4.jpg in Resources */,
+				50A3FBBE1EC95A16005E8768 /* DemoProductViewController.xib in Resources */,
 				506983C31EC174FD00D2C292 /* Main.storyboard in Resources */,
 				506983D91EC1AA0A00D2C292 /* DemoCollectionViewCell.xib in Resources */,
 				506983E41EC1F07A00D2C292 /* cat1.jpg in Resources */,
@@ -248,15 +275,18 @@
 			files = (
 				506983D41EC1A5F800D2C292 /* DummyDataSource.m in Sources */,
 				506983C01EC174FD00D2C292 /* ViewController.m in Sources */,
+				50A3FBC81ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m in Sources */,
 				506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */,
 				506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */,
+				50A3FBBD1EC95A16005E8768 /* DemoProductViewController.m in Sources */,
 				506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */,
 				506CD6E01EC56466007F931B /* YH_PhotoBrowserViewController.m in Sources */,
 				506CD6DF1EC56466007F931B /* YH_ImageScrollView.m in Sources */,
+				50A3FBC51EC9CC66005E8768 /* YH_TransitionAnimator.m in Sources */,
 				506CD6E11EC56466007F931B /* YH_PresentAnimatedTransitioningObject.m in Sources */,
+				50A3FBC21EC9CC2B005E8768 /* YH_TransitionManager.m in Sources */,
 				506983BA1EC174FD00D2C292 /* main.m in Sources */,
 				506CD6DE1EC56466007F931B /* YH_ImageScrollerViewController.m in Sources */,
-				506983EA1EC40B7C00D2C292 /* YH_TransitionManager.m in Sources */,
 				506CD6E21EC56466007F931B /* YH_WaterFallFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

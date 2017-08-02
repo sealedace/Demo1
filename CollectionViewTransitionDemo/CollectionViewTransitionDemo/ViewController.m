@@ -14,6 +14,8 @@
 
 #import "YH_WaterFallFlowLayout.h"
 #import "YH_PhotoBrowserViewController.h"
+#import "DemoProductViewController.h"
+#import "YH_TransitionAnimator.h"
 
 typedef NS_ENUM(NSInteger, LayoutType) {
     LayoutType_Waterfall = 0,
@@ -84,7 +86,7 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"Water Fall";
+    self.navigationItem.title = @"Waterfall";
 }
 
 - (void)viewDidLayoutSubviews {
@@ -130,11 +132,31 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    YH_PhotoBrowserViewController *vc = [[YH_PhotoBrowserViewController alloc] init];
-    vc.yh_delegate = self;
-    vc.yh_dataSource = self;
-    vc.yh_startPage = indexPath.item;
-    [self presentViewController:vc animated:YES completion:nil];
+    
+    DemoCollectionViewCell *cell = (DemoCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    DemoProductViewController *vc = [[DemoProductViewController alloc] init];
+    
+    YH_TransitionAnimator *transitionAnimator = [[YH_TransitionAnimator alloc] init];
+    [self yh_setFromView:cell.coverImageView forTransitionAnimator:transitionAnimator];
+    
+    [self.navigationController.yh_transitionManager registerTransitionFromController:self
+                                                                        toController:vc
+                                                                 navigationOperation:UINavigationControllerOperationPush
+                                                                            animator:transitionAnimator];
+    
+    [self.navigationController.yh_transitionManager registerTransitionFromController:vc
+                                                                        toController:self
+                                                                 navigationOperation:UINavigationControllerOperationPop
+                                                                            animator:transitionAnimator];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+//    YH_PhotoBrowserViewController *vc = [[YH_PhotoBrowserViewController alloc] init];
+//    vc.yh_delegate = self;
+//    vc.yh_dataSource = self;
+//    vc.yh_startPage = indexPath.item;
+//    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - YH_WaterFallFlowLayoutDelegate
@@ -197,10 +219,6 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
     
     DemoCollectionViewCell *cell = (DemoCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0]];
     return cell.coverImageView;
-    
-//    if (self.thumb) {
-//        return self.imageViews[index];
-//    }
 }
 
 #pragma mark - YH_PhotoBrowserDelegate
@@ -211,6 +229,29 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 
 - (void)viewController:(YH_PhotoBrowserViewController *)viewController didLongPressedPageAtIndex:(NSInteger)index presentedImage:(UIImage *)presentedImage {
     NSLog(@"didLongPressedPageAtIndex: %@", @(index));
+}
+
+#pragma mark - Category: YH_TransitionAnimator
+- (void)yh_viewControllerBeginTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
+    if (animator.operation == UINavigationControllerOperationPush) {
+        if (bFrom) {
+            [self yh_fromViewForTransitionAnimator:animator].hidden = YES;
+        }
+    } else if (animator.operation == UINavigationControllerOperationPop) {
+        if (bFrom) {
+            
+        } else {
+            [self yh_fromViewForTransitionAnimator:animator].hidden = NO;
+        }
+    }
+}
+
+- (void)yh_viewControllerEndTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
+    if (animator.operation == UINavigationControllerOperationPush) {
+        
+    } else if (animator.operation == UINavigationControllerOperationPop) {
+        
+    }
 }
 
 #pragma mark - Private
