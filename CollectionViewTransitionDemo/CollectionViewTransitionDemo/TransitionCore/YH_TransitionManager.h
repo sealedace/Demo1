@@ -11,6 +11,7 @@
 
 @protocol YH_ControllerAnimatedTransitioning <UIViewControllerAnimatedTransitioning>
 @property (nonatomic) UINavigationControllerOperation operation;
+@property (strong, nonatomic, nullable) id <UIViewControllerInteractiveTransitioning> interactiveTransitioning;
 
 @end
 

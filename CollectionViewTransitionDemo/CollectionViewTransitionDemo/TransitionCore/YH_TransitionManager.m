@@ -65,6 +65,15 @@ static char *TransitionManagerKey = "YH_TransitionManagerKey";
     return animator;
 }
 
+- (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController NS_AVAILABLE_IOS(7_0) {
+    if ([animationController conformsToProtocol:@protocol(YH_ControllerAnimatedTransitioning)]) {
+        id<YH_ControllerAnimatedTransitioning> animator = (id<YH_ControllerAnimatedTransitioning>)animationController;
+        return animator.interactiveTransitioning;
+    }
+    return nil;
+}
+
 #pragma mark - Public
 - (void)registerTransitionFromController:(UIViewController * _Nonnull)from
                             toController:(UIViewController * _Nonnull)to

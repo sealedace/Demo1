@@ -14,8 +14,10 @@ static NSTimeInterval const kAnimationDuration = 1.3f;
 @interface YH_TransitionAnimator()
 {
     UINavigationControllerOperation _operation;
+    __strong id<UIViewControllerInteractiveTransitioning> _interactiveTransitioning;
 }
 @property (weak, nonatomic) id  <UIViewControllerContextTransitioning> _Nullable transitionContext;
+
 @end
 
 @implementation YH_TransitionAnimator
@@ -28,6 +30,14 @@ static NSTimeInterval const kAnimationDuration = 1.3f;
 
 - (UINavigationControllerOperation) operation {
     return _operation;
+}
+
+- (id<UIViewControllerInteractiveTransitioning>)interactiveTransitioning {
+    return _interactiveTransitioning;
+}
+
+- (void)setInteractiveTransitioning:(id<UIViewControllerInteractiveTransitioning>)interactiveTransitioning {
+    _interactiveTransitioning = interactiveTransitioning;
 }
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
@@ -45,15 +55,26 @@ static NSTimeInterval const kAnimationDuration = 1.3f;
     UIView *containerView = [transitionContext containerView];
     UIView *fromControllerView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toControllerView = [transitionContext viewForKey:UITransitionContextToViewKey];
+    
+    [toControllerView layoutIfNeeded];
+    
+    if ([fromViewController respondsToSelector:@selector(yh_viewControllerWillBeginTransition:isFromViewController:)]) {
+        [fromViewController yh_viewControllerWillBeginTransition:self isFromViewController:YES];
+    }
+    
+    if ([toViewController respondsToSelector:@selector(yh_viewControllerWillBeginTransition:isFromViewController:)]) {
+        [toViewController yh_viewControllerWillBeginTransition:self isFromViewController:NO];
+    }
+    
     UIView *fromView = ({
         UIView *view = nil;
-        view = [fromViewController yh_fromViewForTransitionAnimator:self];
+        view = [fromViewController yh_fromViewForTransitionAnimator:self isFromViewController:YES];
         
         view;
     });
     UIView *toView = ({
         UIView *view = nil;
-        view = [toViewController yh_toViewForTransitionAnimator:self];
+        view = [toViewController yh_toViewForTransitionAnimator:self isFromViewController:NO];
         
         view;
     });
@@ -62,6 +83,7 @@ static NSTimeInterval const kAnimationDuration = 1.3f;
         [containerView addSubview:toViewController.view];
         
         CGRect fromRect = [containerView convertRect:fromView.frame fromView:fromView.superview];
+        CGRect toRect = [containerView convertRect:toView.frame fromView:toView.superview];
         UIImageView *animatingImageView = [[UIImageView alloc] initWithFrame:fromRect];
         [containerView addSubview:animatingImageView];
         
@@ -84,14 +106,52 @@ static NSTimeInterval const kAnimationDuration = 1.3f;
         [UIView animateWithDuration:kAnimationDuration
                          animations:^{
                              toControllerView.alpha = 1.f;
+                             animatingImageView.frame = toRect;
                          }
                          completion:^(BOOL finished) {
                              [self _completeTransition:transitionContext];
+                             [animatingImageView removeFromSuperview];
                          }];
         
     } else if (operation == UINavigationControllerOperationPop) {
-        [containerView addSubview:toControllerView];
-        [self _completeTransition:transitionContext];
+        
+        [containerView insertSubview:toViewController.view belowSubview:fromControllerView];
+        
+        CGRect fromRect = [containerView convertRect:fromView.frame fromView:fromView.superview];
+        CGRect toRect = [containerView convertRect:toView.frame fromView:toView.superview];
+        UIImageView *animatingImageView = [[UIImageView alloc] initWithFrame:fromRect];
+        [containerView addSubview:animatingImageView];
+        
+        if ([fromView respondsToSelector:@selector(image)]) {
+            UIImage *image = [fromView performSelector:@selector(image)];
+            animatingImageView.contentMode = fromView.contentMode;
+            animatingImageView.clipsToBounds = fromView.clipsToBounds;
+            animatingImageView.image = image;
+        }
+        
+        if ([fromViewController respondsToSelector:@selector(yh_viewControllerBeginTransitionAnimation:isFromViewController:)]) {
+            [fromViewController yh_viewControllerBeginTransitionAnimation:self isFromViewController:YES];
+        }
+        
+        if ([toViewController respondsToSelector:@selector(yh_viewControllerBeginTransitionAnimation:isFromViewController:)]) {
+            [toViewController yh_viewControllerBeginTransitionAnimation:self isFromViewController:NO];
+        }
+        
+        toControllerView.alpha = 0.f;
+        fromControllerView.alpha = 1.f;
+        [UIView animateWithDuration:kAnimationDuration
+                         animations:^{
+                             toControllerView.alpha = 1.f;
+                             fromControllerView.alpha = 0.f;
+                             animatingImageView.frame = toRect;
+                         }
+                         completion:^(BOOL finished) {
+                             [self _completeTransition:transitionContext];
+                             [animatingImageView removeFromSuperview];
+                         }];
+        
+//        [containerView addSubview:toControllerView];
+//        [self _completeTransition:transitionContext];
     }
 }
 

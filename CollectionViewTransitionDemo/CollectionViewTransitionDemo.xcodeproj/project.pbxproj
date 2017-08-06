@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		456FAE391F3760A100317269 /* YH_TransitionInteractiveObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 456FAE381F3760A100317269 /* YH_TransitionInteractiveObject.m */; };
 		506983BA1EC174FD00D2C292 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983B91EC174FD00D2C292 /* main.m */; };
 		506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983BC1EC174FD00D2C292 /* AppDelegate.m */; };
 		506983C01EC174FD00D2C292 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506983BF1EC174FD00D2C292 /* ViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		456FAE371F3760A100317269 /* YH_TransitionInteractiveObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YH_TransitionInteractiveObject.h; sourceTree = "<group>"; };
+		456FAE381F3760A100317269 /* YH_TransitionInteractiveObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YH_TransitionInteractiveObject.m; sourceTree = "<group>"; };
 		506983B51EC174FD00D2C292 /* CollectionViewTransitionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewTransitionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		506983B91EC174FD00D2C292 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		506983BB1EC174FD00D2C292 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				50A3FBC41EC9CC66005E8768 /* YH_TransitionAnimator.m */,
 				50A3FBC61ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.h */,
 				50A3FBC71ECB206C005E8768 /* UIViewController+YH_TransitionAnimator.m */,
+				456FAE371F3760A100317269 /* YH_TransitionInteractiveObject.h */,
+				456FAE381F3760A100317269 /* YH_TransitionInteractiveObject.m */,
 			);
 			path = TransitionCore;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 				506983DD1EC1EABD00D2C292 /* DemoSectionHeader.m in Sources */,
 				506983BD1EC174FD00D2C292 /* AppDelegate.m in Sources */,
 				50A3FBBD1EC95A16005E8768 /* DemoProductViewController.m in Sources */,
+				456FAE391F3760A100317269 /* YH_TransitionInteractiveObject.m in Sources */,
 				506983D81EC1AA0A00D2C292 /* DemoCollectionViewCell.m in Sources */,
 				506CD6E01EC56466007F931B /* YH_PhotoBrowserViewController.m in Sources */,
 				506CD6DF1EC56466007F931B /* YH_ImageScrollView.m in Sources */,

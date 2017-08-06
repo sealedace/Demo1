@@ -46,9 +46,17 @@ static NSString * const YH_toViewForTransitionKey = @"YH_toViewForTransitionKey"
     return self.yh_viewsForTransitionAnimation[key];
 }
 
+- (void)yh_viewControllerWillBeginTransition:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
+    
+}
+
 - (void)yh_viewControllerBeginTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     
 }
+
+//- (void)yh_viewControllerWillEndTransition:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
+//    
+//}
 
 - (void)yh_viewControllerEndTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     

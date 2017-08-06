@@ -138,7 +138,7 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
     DemoProductViewController *vc = [[DemoProductViewController alloc] init];
     
     YH_TransitionAnimator *transitionAnimator = [[YH_TransitionAnimator alloc] init];
-    [self yh_setFromView:cell.coverImageView forTransitionAnimator:transitionAnimator];
+    [self yh_setFromView:cell.coverImageView forTransitionAnimator:transitionAnimator isFromViewController:YES];
     
     [self.navigationController.yh_transitionManager registerTransitionFromController:self
                                                                         toController:vc
@@ -232,25 +232,42 @@ YH_PhotoBrowserDelegate, YH_PhotoBrowserDataSource>
 }
 
 #pragma mark - Category: YH_TransitionAnimator
+- (void)yh_viewControllerWillBeginTransition:(YH_TransitionAnimator *)animator isFromViewController:(BOOL)bFrom {
+    if (animator.operation == UINavigationControllerOperationPop) {
+        if (bFrom) {
+            
+        } else {
+            UIView *view = [self yh_fromViewForTransitionAnimator:animator isFromViewController:YES];
+            [self yh_setToView:view forTransitionAnimator:animator isFromViewController:NO];
+        }
+    }
+}
+
 - (void)yh_viewControllerBeginTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     if (animator.operation == UINavigationControllerOperationPush) {
         if (bFrom) {
-            [self yh_fromViewForTransitionAnimator:animator].hidden = YES;
+            [self yh_fromViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = YES;
         }
     } else if (animator.operation == UINavigationControllerOperationPop) {
         if (bFrom) {
             
         } else {
-            [self yh_fromViewForTransitionAnimator:animator].hidden = NO;
+            [self yh_fromViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = YES;
         }
     }
 }
 
 - (void)yh_viewControllerEndTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     if (animator.operation == UINavigationControllerOperationPush) {
-        
+        if (bFrom) {
+            [self yh_fromViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = NO;
+        }
     } else if (animator.operation == UINavigationControllerOperationPop) {
-        
+        if (bFrom) {
+            
+        } else {
+            [self yh_fromViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = NO;
+        }
     }
 }
 

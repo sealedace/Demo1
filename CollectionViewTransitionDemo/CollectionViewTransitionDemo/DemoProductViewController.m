@@ -53,8 +53,13 @@
     
     [self.scrollView addSubview:self.pictureCollectionView];
     
+    [self.scrollView addSubview:({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.f, 220.f, CGRectGetWidth(screenBounds), 700.f)];
+        view.backgroundColor = [UIColor colorWithHue:0.3 saturation:0.4 brightness:0.3 alpha:1.f];
+        view;
+    })];
     
-    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(screenBounds), CGRectGetHeight(screenBounds)-CGRectGetMaxY(self.navigationController.navigationBar.frame));
+    self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(screenBounds), 200.f+740.f);
     
     self.imageArray = @[ @"cat1.jpg", @"cat2.jpg", @"cat3.jpg", @"cat4.jpg" ];
 }
@@ -66,21 +71,43 @@
 }
 
 #pragma mark - Category: YH_TransitionAnimator
+- (void)yh_viewControllerWillBeginTransition:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
+    if (animator.operation == UINavigationControllerOperationPush) {
+        if (bFrom) {
+            
+        } else {
+            UICollectionViewCell *cell = [self.pictureCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+            [self yh_setToView:[cell.contentView viewWithTag:11] forTransitionAnimator:animator isFromViewController:bFrom];
+        }
+    } else if (animator.operation == UINavigationControllerOperationPop) {
+        if (bFrom) {
+            UIView *view = [self yh_toViewForTransitionAnimator:animator isFromViewController:NO];
+            [self yh_setFromView:view forTransitionAnimator:animator isFromViewController:YES];
+        }
+    }
+}
+
 - (void)yh_viewControllerBeginTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     if (animator.operation == UINavigationControllerOperationPush) {
         if (bFrom) {
             
         } else {
-            [self yh_toViewForTransitionAnimator:animator].hidden = YES;
+            [self yh_toViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = YES;
         }
     } else if (animator.operation == UINavigationControllerOperationPop) {
-        
+        if (bFrom) {
+            [self yh_fromViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = YES;
+        }
     }
 }
 
 - (void)yh_viewControllerEndTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom {
     if (animator.operation == UINavigationControllerOperationPush) {
-        
+        if (bFrom) {
+            
+        } else {
+            [self yh_toViewForTransitionAnimator:animator isFromViewController:bFrom].hidden = NO;
+        }
     } else if (animator.operation == UINavigationControllerOperationPop) {
         
     }

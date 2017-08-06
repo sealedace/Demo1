@@ -12,7 +12,11 @@
 
 @interface UIViewController (YH_TransitionAnimator)
 
+- (void)yh_viewControllerWillBeginTransition:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom;
+
 - (void)yh_viewControllerBeginTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom;
+
+//- (void)yh_viewControllerWillEndTransition:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom;
 
 - (void)yh_viewControllerEndTransitionAnimation:(YH_TransitionAnimator * _Nonnull)animator isFromViewController:(BOOL)bFrom;
 
